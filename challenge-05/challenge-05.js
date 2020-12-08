@@ -2,17 +2,22 @@
 Crie uma variável qualquer, que receba um array com alguns valores aleatórios
 - ao menos 5 - (fica por sua conta os valores do array).
 */
-// ?
+
+var myArray = [ 'Almeida', 10, true, {nome: 'Rodrigo'}, function() {} ];
 
 /*
 Crie uma função que receba um array como parâmetro, e retorne esse array.
 */
-// ?
+
+function showArray (arg) {
+  return arg;
+}
 
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-// ?
+
+console.log(showArray(myArray)[1]);
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -20,18 +25,27 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
-// ?
+
+function newArray (array, n) {
+    return array[n];
+};
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-// ?
+
+var arrayTwo = [ 5, 'Rodrigo', [1, 2, 3, 'Almeida'], true, { idade: 41} ];
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-// ?
+
+console.log(newArray(arrayTwo, 0));
+console.log(newArray(arrayTwo, 1));
+console.log(newArray(arrayTwo, 2));
+console.log(newArray(arrayTwo, 3));
+console.log(newArray(arrayTwo, 4));
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -47,30 +61,64 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-// ?
+
+function livro ( nome ) {
+    var livros = {
+        'JavaScript Ninja': {
+            quantidadePaginas: 350,
+            autor: 'Fernando',
+            editora: 'Udemy'
+        },
+        'React Native': {
+            quantidadePaginas: 250,
+            autor: 'Daciuk',
+            editora: 'Record'
+        },
+        'Git e GitHub': {
+            quantidadePaginas: 550,
+            autor: 'FDaciuk',
+            editora: 'Nova'
+        }
+    };
+
+    /*
+    if (!nome) {
+      return livros;
+    }
+    return livros[nome];
+
+    */
+    return !nome ? livros : livros[nome];
+};
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-// ?
+
+console.log(livro('React Native'));
+console.log(livro());
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-// ?
+
+var nome = 'JavaScript Ninja'
+console.log('O livro ' + nome + ' tem ' + livro( nome ).quantidadePaginas + ' páginas!');
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-// ?
+
+console.log('O autor do livro ' + nome + ' é ' + livro( nome ).autor + '.');
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
+
+console.log('O livro ' + nome + ' foi publicado pela editora ' + livro( nome ).editora + '.');
