@@ -5,7 +5,7 @@ desses parâmetros.
 */
 
 var sum = function calculaSum(x, y) {
-  return x + y;
+    return x + y;
 };
 
 /*
@@ -14,7 +14,12 @@ o resultado no console, com a frase:
 "A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]."
 */
 
-console.log("A soma de 5 e 5 é igual a", sum(5, 5) + '.');
+//console.log("A soma de 5 e 5 é igual a", sum(5, 5) + '.');
+
+//Correção:
+var value1 = 5;
+var value2 = 5;
+console.log('A soma de ' + value1 + ' e ' + value2 + ' é igual a ' + sum( value1, value2) + '.');
 
 /*
 Mostre no console o nome da função criada acima, com a frase:
@@ -29,7 +34,7 @@ seu nome.
 */
 
 function showName() {
-  return 'Rodrigo';
+    return 'Rodrigo';
 }
 // console.log( showName( 'Rodrigo' ));
 
@@ -37,9 +42,12 @@ function showName() {
 Declare uma variável chamada `varShowName` que recebe a função criada acima.
 */
 
-var varShowName = function showName() {
-  return 'Rodrigo';
-};
+// var varShowName = function showName() {
+//     return 'Rodrigo';
+// };
+
+//Correção:
+var varShowName = showName;
 
 /*
 Usando a variável criada acima, mostre no console o nome e o retorno da função
@@ -47,7 +55,10 @@ atribuída a ela, com a seguinte frase:
 "A função [NOME DA FUNÇÃO] retorna [RETORNO DA FUNÇÃO]."
 */
 
-console.log('A função ' + varShowName.name + ' retorna ' + varShowName('Rodrigo') + '.');
+//console.log('A função ' + varShowName.name + ' retorna ' + varShowName('Rodrigo') + '.');
+
+//Correção:
+console.log('A função ' + varShowName.name + ' retorna ' + varShowName() + '.');
 
 /*
 Crie uma função literal chamada `calculator`, que funcione assim:
@@ -63,26 +74,50 @@ vai efetuar. Será uma string com os valores `+`, `-`, `*`, `/` ou `%`;
 */
 
 function calculator(operador) {
-  return function resultado(x, y) {
-    var num1 = x;
-    var num2 = y;
-    var res;
-    switch (operador) {
-      case '+': res = num1 + num2;
-        break;
-      case '-': res = num1 - num2;
-        break;
-      case '*': res = num1 * num2;
-        break;
-      case '/': res = num1 / num2;
-        break;
-      case '%': res = num1 % num2;
-        break;
-      default: res = 'Operação Inválida!';
-    }
-    return `Resultado da operação: ${num1} ${operador} ${num2} = ${res}`;
-  };
+    return function resultado(x, y) {
+        var num1 = x;
+        var num2 = y;
+        var res;
+        switch (operador) {
+            case '+': res = num1 + num2;
+                break;
+            case '-': res = num1 - num2;
+                break;
+            case '*': res = num1 * num2;
+                break;
+            case '/': res = num1 / num2;
+                break;
+            case '%': res = num1 % num2;
+                break;
+            default: res = 'Operação Inválida!';
+        }
+        return `Resultado da operação: ${num1} ${operador} ${num2} = ${res}`;
+    };
 };
+
+//Outra opção mais reduzida.
+
+function calculator(operador) {
+    return function (x, y) {
+        var res;
+        switch (operador) {
+            case '+': res = x + y;
+            break;
+            case '-': res = x - y;
+            break;
+            case '*': res = x * y;
+            break;
+            case '/': res = x / y;
+            break;
+            case '%': res = x % y;
+            break;
+            default:
+            return 'Operação Inválida!';
+        }
+        return `Resultado da operação: ${x} ${operador} ${y} = ${res}.`;
+    };
+}
+
 
 //console.log(calculator('%')(10, 3));
 
