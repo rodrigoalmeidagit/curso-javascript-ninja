@@ -9,10 +9,16 @@
   Qual loop você deve usar para que essa mensagem seja mostrada no console?
   */
 
-  var once = false;
-  do {
-    console.log( 'Entrou ao menos uma vez!' );
-  } while ( once === true );
+//   var once = false;
+//   do {
+//     console.log( 'Entrou ao menos uma vez!' );
+//   } while ( once === true );
+
+  //Outra opção:
+    var once = false;
+    do {
+        console.log('Entrou ao menos uma vez!');
+    } while ( once );
 
   /*
   Crie um objeto chamado `person`, que receba as seguintes propriedades:
@@ -41,6 +47,15 @@
     console.log('The ' + prop + ' of person is ' + person[ prop ] + '.');
   }
 
+  //Correção:
+  var counter = 0;
+  for( var prop in person ) {
+    console.log('The ' + prop + ' of person is ' + person[prop] + '.');
+    counter++;
+  }
+    console.log('The person has ' + counter + ' properties');
+
+
   /*
   Crie uma função chamada `moreThan`, que vai verificar se a pessoa (objeto
   criado acima) é mais velha que a idade passada por parâmetro.
@@ -50,7 +65,8 @@
   */
 
   function moreThan( idade ) {
-    return person.age > idade ? true : false;
+    //return person.age > idade ? true : false;
+      return person.age > idade;
   }
   console.log( 'The person has more than 25 years old?', moreThan(25) + '.' )
 
@@ -62,11 +78,11 @@
   console.log( 'De 0 a 10:' );
   var numbers = [];
   for ( var counter = 0; counter <= 20; counter++ ) {
-    //numbers.push( counter );
+    numbers.push( counter );
     if ( counter >= 10 ) {
       break;
     }
-    numbers.push(counter);
+    //numbers.push( counter );
   }
   console.log( numbers );
 
@@ -76,13 +92,23 @@
   esses. Se o número for ímpar, pular para o próximo número.
   Mostrar no console os números do array.
   */
-  console.log('Pares de 0 a 20:');
+  console.log( 'Ímpares de 0 a 20:' );
   numbers = [];
-  for (var counter = 0; counter <= 20; counter++) {
-    if (counter % 2 !== 0) {
+  for ( var counter = 0; counter <= 20; counter++ ) {
+    if ( counter % 2 !== 0 ) {
       continue;
     }
-    numbers.push(counter);
+    numbers.push( counter );
   }
-  console.log(numbers);
+  console.log( numbers );
+
+    console.log('Pares de 0 a 20:');
+    numbers = [];
+    for (var counter = 0; counter <= 20; counter++) {
+        if (counter % 2 === 0) {
+            continue;
+        }
+        numbers.push(counter);
+    }
+    console.log(numbers);
 }());
