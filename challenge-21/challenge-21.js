@@ -1,5 +1,5 @@
 (function( win, doc ){
-  'use strict';
+    'use strict';
 /*
 O desafio de hoje será um pequeno projeto: um cronômetro!
 As regras para criação do cronômetro são as seguintes:
@@ -17,27 +17,46 @@ usar o nome que achar melhor, desde que ele seja semântico, ou seja, o nome
 dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 */
 
-var $inputText = doc.querySelector( '[data-js="data"]' );
-var $inputStart = doc.querySelector( '[data-js="start"]' );
-var $inputStop = doc.querySelector( '[data-js="stop"]' );
-var $inputReset = doc.querySelector( '[data-js="reset"]' );
-var counter = 0;
+var $text = doc.querySelector( '[data-js="data"]' );
+var $start = doc.querySelector( '[data-js="start"]' );
+var $stop = doc.querySelector( '[data-js="stop"]' );
+var $reset = doc.querySelector( '[data-js="reset"]' );
 var temporizador;
 
-$inputStart.addEventListener( 'click', function timer(){
-    console.log( counter++ )
-    temporizador = setTimeout( timer, 1000 );
-    $inputText.value = counter;
-}, false );
+// $start.addEventListener( 'click', function timer(){
+//     console.log( counter++ )
+//     temporizador = setTimeout( timer, 1000 );
+//     $text.value = counter;
+// }, false );
 
-$inputStop.addEventListener( 'click', function() {
-    clearTimeout( temporizador );
-}, false );
+// $stop.addEventListener('click', function () {
+//   clearTimeout(temporizador);
+// }, false);
 
-$inputReset.addEventListener('click', function () {
-    clearTimeout( temporizador );
-    $inputText.value = 0;
-    counter = 0;
-}, false);
+// $reset.addEventListener('click', function () {
+//   clearTimeout(temporizador);
+//   $text.value = 0;
+//   counter = 0;
+// }, false);
+
+//Melhor Prática:
+
+$start.addEventListener( 'click', startTimer, false );
+$stop.addEventListener( 'click', stopTimer, false );
+$reset.addEventListener( 'click', resetTimer, false );
+
+function startTimer(){
+  $text.value = +$text.value + 1;
+  temporizador = setTimeout( startTimer, 1000 );
+}
+
+function stopTimer(){
+  clearTimeout( temporizador );
+}
+
+function resetTimer(){
+  $text.value = 0;
+  stopTimer();
+}
 
 })( window, document );
