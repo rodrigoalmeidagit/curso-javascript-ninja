@@ -1,0 +1,17 @@
+* {
+    margin: 5px;
+    padding: 0;
+}
+
+#cep {
+    margin-top: 15px;
+}
+
+label.field {
+    display: inline-block;
+    width: 90px;
+}
+
+label.street {
+    margin-top: 10px;
+}
