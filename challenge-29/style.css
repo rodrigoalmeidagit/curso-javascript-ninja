@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+img {
+  max-width: 100px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form, table {
+  float: left;
+  width: 50%;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  display: block;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 7px;
+  width: 300px;
+}
+
+button {
+  background: blueviolet;
+  border: 1px solid black;
+  box-shadow: 0px 3px 5px black;
+  color: white;
+  padding: 10px 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 5px 15px;
+  border: 1px solid black;
+  text-align: center;
+}
